@@ -4,6 +4,7 @@
 
 ・QuizActivityにおいて、画面回転等で急にActivityが破壊されてもデータを
 　Bundleへ入れて保存し復帰時に同じ状態に戻すようにした。
+
 　ただし、マニフェストxmlファイルで「android:screenOrientation="portrait"」とすれば
 　画面回転を制限できたので、電話がかかってきて破壊されたときぐらいしか役に立たない機能となった。
  
