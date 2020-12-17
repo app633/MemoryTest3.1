@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -63,9 +65,27 @@ public class SetQuizFragment extends Fragment {
     private CheckBox BaseballCheckBox;
     private CheckBox FootballCheckBox;
 
+    private String all_tag;
+    private String entertainer_tag;
+    private String idol_tag;
+    private String human_tag;
+    private String anime_tag;
+    private String singer_tag;
+    private String athlete_tag;
+    private String removeNiche_tag;
+    private String niche_tag;
+    private String baseball_tag;
+    private String football_tag;
+
+    private ArrayList<String> tags_array = new ArrayList<String>();
+    private String send_url_for_count;
+    private String send_url_for_info;
+
     private Spinner spinner; //問題数選択のためのスピナー
     private TextView hitNumText;
     private int hitNum; //hitCount関数が呼ばれたときに、該当件数をここにプールしておく（該当件数0でクイズを開始しないように）
+
+
 
 
     public SetQuizFragment() {
@@ -97,6 +117,31 @@ public class SetQuizFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+
+        ThreadInfo thread_info = new ThreadInfo();
+        thread_info.setUrl("http://quiz.takbazinga.com:8080/quiz/tag?tag_id[]=4&tag_id[]=1&tag_id[]=5&tag_id[]=not3&required_cnt=5");
+        thread_info.start();
+
+
+        // if you wait few seconds and don't have any response, it break;
+        while (true) {
+//            try {
+//                Thread.sleep(1000L);
+//            } catch (InterruptedException e) {
+//
+//            }
+
+            // 処理が完了していたらループを抜ける
+            if (thread_info.finished()) {
+                break;
+            }
+        }
+
+        JSONArray result = thread_info.getResult();
+        System.out.println("hello, worle");
+        System.out.println(result);
     }
 
 
@@ -107,7 +152,10 @@ public class SetQuizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_set_quiz, container, false);
+
+
     }
 
 
@@ -129,6 +177,18 @@ public class SetQuizFragment extends Fragment {
         OnlyNicheCheckBox = view.findViewById(R.id.isOnlyNicheCheckBox);      OnlyNicheCheckBox.setOnClickListener(checkBoxClickListener);
         BaseballCheckBox = view.findViewById(R.id.isBaseballCheckBox);        BaseballCheckBox.setOnClickListener(checkBoxClickListener);
         FootballCheckBox = view.findViewById(R.id.isFootballCheckBox);        FootballCheckBox.setOnClickListener(checkBoxClickListener);
+
+        all_tag = ((TextView)view.findViewById(R.id.random_hidden)).getText().toString();
+        entertainer_tag = ((TextView)view.findViewById(R.id.entertainer_hidden)).getText().toString();
+        idol_tag = ((TextView)view.findViewById(R.id.idol_hidden)).getText().toString();
+        human_tag = ((TextView)view.findViewById(R.id.human_hidden)).getText().toString();
+        anime_tag = ((TextView)view.findViewById(R.id.anime_hidden)).getText().toString();
+        singer_tag = ((TextView)view.findViewById(R.id.singer_hidden)).getText().toString();
+        athlete_tag = ((TextView)view.findViewById(R.id.athlete_hidden)).getText().toString();
+        removeNiche_tag = ((TextView)view.findViewById(R.id.removeNiche_hidden)).getText().toString();
+        niche_tag = ((TextView)view.findViewById(R.id.niche_hidden)).getText().toString();
+        baseball_tag = ((TextView)view.findViewById(R.id.baseball_hidden)).getText().toString();
+        football_tag = ((TextView)view.findViewById(R.id.football_hidden)).getText().toString();
 
         //問題数を選択するためのspinner
         spinner = view.findViewById(R.id.questionNumSpinner);

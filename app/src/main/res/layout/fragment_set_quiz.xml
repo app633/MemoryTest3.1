@@ -64,6 +64,13 @@
             android:text="全ての問題からランダムに出題"
             android:textSize="20dp"/>
 
+        <TextView
+            android:id="@+id/random_hidden"
+            android:visibility="gone"
+            android:text="all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <CheckBox
             android:id="@+id/isFavoriteCheckBox"
             android:layout_width="wrap_content"
@@ -84,6 +91,13 @@
                 android:text="実在人物"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/human_hidden"
+                android:visibility="gone"
+                android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <CheckBox
                 android:id="@+id/isAnimeCheckBox"
                 android:layout_width="wrap_content"
@@ -91,6 +105,13 @@
                 android:text="アニメキャラ"
                 android:textSize="20dp"
                 android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/anime_hidden"
+                android:visibility="gone"
+                android:text="9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
@@ -102,6 +123,13 @@
             android:textSize="20dp"
             android:layout_marginTop="10dp" />
 
+        <TextView
+            android:id="@+id/removeNiche_hidden"
+            android:visibility="gone"
+            android:text="not3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <CheckBox
             android:id="@+id/isOnlyNicheCheckBox"
             android:layout_width="wrap_content"
@@ -109,6 +137,13 @@
             android:text="ニッチな問題のみ"
             android:textSize="20dp"
             android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/niche_hidden"
+            android:visibility="gone"
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
 
@@ -143,6 +178,14 @@
                 android:textSize="20dp"
                 android:layout_marginTop="10dp" />
 
+            <TextView
+                android:id="@+id/singer_hidden"
+                android:visibility="gone"
+                android:text="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
             <CheckBox
                 android:id="@+id/isEntertainerCheckBox"
                 android:layout_width="wrap_content"
@@ -151,6 +194,14 @@
                 android:textSize="20dp"
                 android:layout_marginTop="10dp" />
 
+            <TextView
+                android:id="@+id/entertainer_hidden"
+                android:visibility="gone"
+                android:text="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
             <CheckBox
                 android:id="@+id/isBaseballCheckBox"
                 android:layout_width="wrap_content"
@@ -158,6 +209,14 @@
                 android:text="野球選手"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/baseball_hidden"
+                android:visibility="gone"
+                android:text="10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 
@@ -176,6 +235,13 @@
                 android:textSize="20dp"
                 android:layout_marginTop="10dp" />
 
+            <TextView
+                android:id="@+id/idol_hidden"
+                android:visibility="gone"
+                android:text="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <CheckBox
                 android:id="@+id/isAthleteCheckBox"
                 android:layout_width="wrap_content"
@@ -183,6 +249,13 @@
                 android:text="スポーツ選手"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/athlete_hidden"
+                android:visibility="gone"
+                android:text="7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
             <CheckBox
@@ -192,6 +265,13 @@
                 android:text="サッカー選手"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/football_hidden"
+                android:visibility="gone"
+                android:text="8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </LinearLayout>
